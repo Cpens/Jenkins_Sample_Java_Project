@@ -20,7 +20,7 @@ pipeline {
         }
 	stage('Build'){
 	    steps {
-	      input 'Do you want to continue deployement to UAT ?', ok: 'Yes'
+	      input message: 'Do you want to continue deployement to UAT ?', ok: 'Yes'
 	     sh "mvn clean compile package"
 	     }
 	    }
