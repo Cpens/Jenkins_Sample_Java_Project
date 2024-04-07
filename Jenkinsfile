@@ -13,8 +13,7 @@ pipeline {
                 bat 'mvn clean compile'
             }
         }
-    }
-	    
+    	    
         stage('Test') {
             steps {
 		input message: 'Are you sure to proceed to next step? ', ok: 'Yes'
