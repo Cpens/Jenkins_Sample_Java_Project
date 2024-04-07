@@ -10,8 +10,7 @@ pipeline {
 
   	 stage('Compile') {
          	steps {
-            withMaven(maven : 'apache-maven-3.9.6') {
-                bat'mvn clean compile'
+                bat 'mvn clean compile'
             }
         }
     }
@@ -19,13 +18,13 @@ pipeline {
         stage('Test') {
             steps {
 		input message: 'Are you sure to proceed to next step? ', ok: 'Yes'
-               sh "mvn test"
+               bat "mvn test"
             }
         }
 	stage('Build'){
 	    steps {
 	      input message: 'Do you want to continue deployement to UAT ?', ok: 'Yes'
-	     sh "mvn clean compile package"
+	     bat "mvn clean compile package"
 	     }
 	    }
 	  
